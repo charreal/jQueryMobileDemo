@@ -1,0 +1,279 @@
+<!DOCTYPE html> 
+<html> 
+    <head lang="en"> 
+        <title>Demo</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta charset="utf-8">     
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />    
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+        <style>    
+            .ui-li-desc {white-space: normal;}
+             #event .ui-listview-filter {display:none;}
+        </style>
+    </head> 
+    <body> 
+        <div data-role="page" id="home">
+            <div data-role="header">
+                <h1>User Group</h1>
+                <a href="#about" data-icon="star" class="ui-btn-right" data-rel="dialog">About</a>
+            </div>
+            <div data-role="content">   
+                <p><img src="https://lh6.googleusercontent.com/-ReA3tkGDadc/T2JdM5XkY5I/AAAAAAAAAKI/2jfuu2jDua4/s126/image_for_jQueryMobile_talk.png" alt="user group image" style="float:left;margin:0 10px 10px 0;"/>Information about the user group would go here, we'll just use make some stuff up.</p>  
+                <p>We meet every month and get together with a beer to chat about mobile stuff.</p>
+                <p>Everyone is welcome even if your phone has got buttons you actually have to press.</p>
+                <p>Check out the event list below and don't forget to register so we know how many people are coming.</p>
+                <ul data-role="listview" data-inset="true">      
+                    <li data-role="list-divider">Upcoming Events</li>            
+                    <li><a href="#event">Jag Reehal's talk</a></li>
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <h4>Operation Mobile</h4>
+            </div>
+        </div>
+        <div data-role="page" id="about">
+            <div data-role="header">
+                <h1>Hi</h1>
+            </div>
+            <div data-role="content">
+                <p>Operation Mobile - Hire us for your mobile mission</p>
+            </div>
+        </div>
+        <div data-role="page" id="event">
+            <div data-role="header">
+                <a href="#home" data-icon="home">Home</a>
+                <h1>Event</h1>
+                <a href="#about" data-icon="star" data-rel="dialog">About</a>
+            </div>
+            <div data-role="content">   
+                <p>Jag Reehal will be telling us about jQuery Mobile and how it can be used solve UI headaches across mobile platforms, devices and browsers.</p>
+                <p>In his session Jag will be create a jQuery Mobile web app from scratch with nothing more than a text editor.</p>         
+                <ul id="attendees" data-role="listview" style="display:none" data-filter="true" data-filter-placeholder="Search attendees"></ul>   
+            </div>        
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#register" data-icon="check">Register</a></li>
+                        <li><a href="#" id="addsampledata" data-icon="plus">Populate</a></li>
+                        <li><a href="#" id="clearsampledata" data-icon="minus">Clear</a></li>
+                    </ul>
+                </div>      
+            </div>
+        </div>
+        <div data-role="page" id="register" data-add-back-btn="true">
+            <div data-role="header">        
+                <h1>Register</h1>
+                <a href="#about" data-icon="star" class="ui-btn-right" data-rel="dialog">About</a>
+            </div>
+            <div data-role="content">
+                <p>
+                    Only the top three fields are important for the demo.</p>
+                <form action="#" id="registration-form">
+                    <div data-role="fieldcontain">
+                        <label for="name">
+                            Name:</label>
+                        <input type="text" name="name" id="name" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="twitterid">
+                            Twitter:</label>
+                        <input type="text" name="twitterid" id="twitterid" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="bio">
+                            Bio:</label>
+                        <textarea cols="40" rows="8" name="bio" id="bio"></textarea>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="password">
+                            Password:</label>
+                        <input type="password" name="password" id="password" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="number">
+                            Number:</label>
+                        <input type="number" name="number" id="number" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="email">
+                            Email:</label>
+                        <input type="email" name="email" id="email" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="url">
+                            Url:</label>
+                        <input type="url" name="url" id="url" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="tel">
+                            Tel:</label>
+                        <input type="tel" name="tel" id="tel" value="" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="slider">
+                            Slider:</label>
+                        <input type="range" name="slider" id="slider" value="0" min="0" max="100" />
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="selectslider">
+                            Select slider:</label>
+                        <select name="selectslider" id="selectslider" data-role="slider">
+                            <option value="off">Off</option>
+                            <option value="on">On</option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <legend>Do you like Marmite?:</legend>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+                            <label for="radio-choice-1">
+                                Yes</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2" />
+                            <label for="radio-choice-2">
+                                No</label>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <legend>Favorite Platforms:</legend>
+                            <input type="checkbox" name="checkbox-1" id="checkbox-1" />
+                            <label for="checkbox-1">
+                                iOS</label>
+                            <input type="checkbox" name="checkbox-2" id="checkbox-2" />
+                            <label for="checkbox-2">
+                                Android</label>
+                            <input type="checkbox" name="checkbox-3" id="checkbox-3" />
+                            <label for="checkbox-3">
+                                Windows</label>
+                            <input type="checkbox" name="checkbox-4" id="checkbox-4" />
+                            <label for="checkbox-4">
+                                Blackberry</label>
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-2" class="select">
+                            Choose pizza toppings:</label>
+                        <select name="select-choice-2" id="select-choice-2" multiple="multiple" data-native-menu="false">
+                            <option disabled="disabled">Choose toppings</option>
+                            <option value="beef">Beef</option>
+                            <option value="chicken">Chicken</option>
+                            <option value="peppers">Peppers</option>
+                            <option value="olives">Olives</option>
+                        </select>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="select-choice-1" class="select">
+                            Choose beverage:</label>
+                        <select name="select-choice-1" id="select-choice-1">
+                            <option value="water">Water</option>
+                            <option value="beer">Beer</option>
+                            <option value="wine">Wine</option>
+                            <option value="softdrink">Soft drink</option>
+                        </select>
+                    </div>
+                    <button type="submit">Register</button>
+                </form>
+            </div>    
+        </div>
+        <div data-role="page" id="attendee" data-add-back-btn="true">
+            <div data-role="header">
+                <h1 id="attendeeId"></h1>
+                <a href="#about" data-icon="star" class="ui-btn-right" data-rel="dialog">About</a>
+            </div>
+            <div data-role="content" class="attendee">
+                <h2 id="attendeeName">
+                </h2>
+                <img id="attendeeImage"/>
+                <p id="attendeeBio">
+                </p>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var jQueryMobileDemo = (function () {
+                var attendees = [], currentId = 0;
+                return {
+                    getAll: function () {
+                        return attendees;
+                    },
+                    add: function (attendee) {
+                        attendee.attendeeId = attendees.length;
+                        attendees.push(attendee);
+                        return;
+                    },
+                    get: function () {
+                        return attendees[currentId];
+                    },
+                    clear: function () {
+                        attendees.length = 0;
+                        return;
+                    },
+                    refreshAttendeesList: function () {
+                        $('#attendees').empty();
+                        var html = '';
+
+                        // if there are no attendees return                         
+                        if (attendees.length === 0) {
+                            $('#event .ui-listview-filter').hide();
+                            return;
+                        }
+
+                        // otherwise create the list divider
+                        html += '<li data-role="list-divider">Attendees</li>';
+
+                        // and list items for attendees but add in attendeeId attribute in the list item
+                        for (var i = 0; i < attendees.length; i++) {
+                            html += '<li><a href="#attendee">';
+                            if (attendees[i].twitter) {
+                                html += '<img width="80px" height="80px" src="https://api.twitter.com/1/users/profile_image/' + attendees[i].twitter + '?size=bigger"/>';
+                            }
+                            html += '<h3>' + attendees[i].name + '</h3>';
+                            html += '<p>' + attendees[i].bio + '</p>';
+                            html += '</a></li>';
+                        }
+
+                        $('#attendees').append(html);
+                        $('#attendees').listview('refresh');
+                        $('#event .ui-listview-filter').show();
+                        $('#attendees').show();
+                        return;
+                    }
+                };
+            } ());
+        </script>
+        <script type="text/javascript">
+            $('#register').live('pagecreate', function (event) {
+                $('#registration-form').submit(function (e) {
+                    e.preventDefault();
+                    jQueryMobileDemo.add({ name: $('#name').val(), bio: $('#bio').val(), twitter: $('#twitterid').val() });
+                    $.mobile.changePage("#event");
+                    return false;
+                });
+            });
+            $('#event').live('pagecreate', function (event) {
+                $('#addsampledata').click(function () {
+                    jQueryMobileDemo.add({ name: 'FC Barcelona', bio: 'Official Twitter Feed of FC Barcelona, More than a club. English version.', twitter: 'FCBarcelona' });
+                    jQueryMobileDemo.add({ name: 'Andrés Iniesta', bio: 'FC Barcelona player. Born in Fuentealbilla 11 May 1984', twitter: 'andresiniesta8' });
+                    jQueryMobileDemo.add({ name: 'Carles Puyol', bio: 'Carles Puyol , born in La Pobla de Segur the 13th of April of 1978. Player for the F.C Barcelona team.', twitter: 'carles5puyol' });
+                    jQueryMobileDemo.add({ name: 'Victor Valdes', bio: 'Nací en Hospitalet de Llobregat el 14 de Enero de 1982. Juego a fútbol y soy portero en el FC Barcelona.', twitter: '1victorvaldes' });
+                    jQueryMobileDemo.add({ name: 'Cesc Fàbregas', bio: '24 years old. Central Midfielder for FC Barcelona. Player for the Spanish National Team.', twitter: 'cesc4official' });
+                    jQueryMobileDemo.add({ name: 'Daniel Alves', bio: 'Dani Alves!! ( Juazeiro, Bahia, Brasil, 6 de maio de 1983), Futebolista! Clube atual: F.C. Barcelona', twitter: 'DaniAlvesD2' });
+                    jQueryMobileDemo.add({ name: 'David Villa', bio: 'TW oficial.Soy futbolista y juego como delantero en el FC Barcelona y la Selección Española.Cuando escriba pondré: PD (Por David) y cuando lo haga mi equipo: ED', twitter: 'Guaje7Villa' });
+                    jQueryMobileDemo.add({ name: 'Gerard Piqué', bio: 'Football player, FC Barcelona', twitter: '3gerardpique' });
+                    jQueryMobileDemo.add({ name: 'Pedro Rodríguez', bio: 'Twitter oficial de Pedro Rodríguez Ledesma / This is the official Twitter page of Pedro Rodríguez Ledesma', twitter: '_Pedro17_' });
+                    jQueryMobileDemo.add({ name: 'Jonathan dos Santos', bio: 'Jonathan dos santos.#28 Jugador de futbol, FCBarcelona 2002/2012 (nacido en Mexico DF el 26 de abril de 1990)', twitter: 'jona2santos' });
+                    jQueryMobileDemo.refreshAttendeesList();
+                });
+
+                $('#clearsampledata').click(function () {
+                    jQueryMobileDemo.clear();
+                    jQueryMobileDemo.refreshAttendeesList();
+                });
+            });
+
+            $('#event').live('pageshow', function (event) {
+                jQueryMobileDemo.refreshAttendeesList();
+            });
+        </script>   
+    </body>
+</html>
